@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">Diccionariu</string>
+    <string name="search_hint">Search the Dictionary</string>
+
+    <string name="title_section1">Dictionary</string>
+    <string name="title_section2">Spell Checker</string>
+    <string name="title_section3">Translate</string>
+    <string name="title_section4">Settings</string>
+    <string name="title_section5">About</string>
+    <string name="title_section6">Favorites</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="spellcheck_button">Check Spelling</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="part_of_speech_abbreviations">
+        <item>null</item>  <!-- 0. placeholder -->
+        <item>n.</item> <!-- 1. noun -->
+        <item>v.</item> <!-- 2. verb -->
+        <item>adv.</item> <!-- 3. adverb -->
+        <item>adj.</item> <!-- 4. adjective -->
+        <item>prep.</item> <!-- 5. preposition -->
+        <item>pron.</item> <!-- 6. pronoun -->
+        <item>conj.</item> <!-- 7. conjunction -->
+        <item>apoc.</item> <!-- 8. apocope -->
+        <item>art.</item> <!-- 9. article -->
+        <item>interj.</item> <!-- 10. interjection -->
+        <item>contr.</item> <!-- 11. contraction -->
+        <item>phr.</item> <!-- 12. phrasal -->
+        <item></item> <!-- 13. variable (relative, etc) -->
+    </string-array>
+    <string name="app_info_title">Asturian Dictionary v. 0.6β</string>
+    <string name="app_info_license_title">License</string>
+    <string name="app_info_error_title">If you find a mistake…</string>
+    <string name="app_info_error">
+        Please let us know.  When compiling the amount of information from the diversity of
+        sources that we have, inevitably, there will be a few mistakes.  Since we are
+        ultimately try to provide a source for rich linguistic information on the Asturian
+        language, we strive for perfection.  Whenever you see a mistake, tap on the menu
+        at the top right of your screen and select "Report error…".  Thank you for your help!
+    </string>
+
+    <string name="app_info_credits">
+        Application programmed by Matthew Stephen Stuckwisch.
+        Dictionary entries provided under license by the Academy of the Asturian Language.
+        Other linguistic information (morphology) is compiled by the rest of the team members at
+        SoftAstur from a variety of sources including OSLIN, Eslema, and A.Ll.A.
+    </string>
+    <string name="app_info_license">
+        This program (Asturian Dictionary) is free software.
+        You can redistribute it and/or modify it under the terms of the GNU General Public
+        License as published by the Free Software Foundation; either version 3 of the License,
+        or (at your option) any later version.  It is distributed in the hope that it will be
+        useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+        You should have received a copy of the GNU General Public License along with this program.
+        If not, see http://www.gnu.org/licenses for more information.
+    </string>
+    <string name="title_activity_word_search">WordSearch</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="oops_sorry">Sorry!</string>
+    <string name="feature_coming_soon">This is a feature that is still under development.  We hope to have it available to you very soon.</string>
+    <string name="dictionary_title">Dictionary of the Academy of the Asturian Language</string>
+    <string name="dictionary_info">Published in 2000 after decades of work, this dictionary comprises over fifty thousand entries.  Countless people provided invaluable support, from researching etymologies and dialectal forms to collecting words in modern fields such as information technology.  The entries are all Copyright © 2000 l’Academia de la Llingua Asturiana which has licensed their use in this program.</string>
+    <string name="dictionary_instructions">To use the dictionary, search for a word in the toolbar.</string>
+    <string name="no_search_results">No matches were found.</string>
+    <string name="conjugate">Conjugate</string>
+    <string name="title_activity_dictionary_conjugation_view">Conjugations</string>
+    <string name="indicative">Indicative</string>
+    <string name="subjunctive">Subjunctive</string>
+    <string name="potential">Potential</string>
+    <string name="present">Present</string>
+    <string name="indefinite_preterite">Indefinite Preterite</string>
+    <string name="imperfect_preterite">Imperfect Preterite</string>
+    <string name="pluperfect">Pluperfect</string>
+    <string name="future">Future</string>
+    <string name="conditional">Conditional</string>
+    <string name="loading_conjugations">Loading the conjugations…</string>
+    <string name="conjugation_warning">Note: the conjugator is currently in alpha and may give incorrect forms for irregular verbs.</string>
+    <string name="loading_entry">Loading the entry…</string>
+    <string name="translate_castilian_to_asturian">Castilian to Asturian</string>
+    <string name="translate_asturian_to_castilian">Asturian to Castilian</string>
+    <string name="translate_direction">Direction</string>
+    <string name="obtaining_translation">Loading the translation…</string>
+    <string name="enter_text_to_translate">Enter some text to translate…</string>
+    <string name="name_spell_checker">Asturian Spell Checker</string>
+    <string name="pref_override_language">Application language</string>
+    <string name="pref_override_language_summary">Many Android devices do not allow you to choose Asturian as a language.  This application can be displayed in either Asturian or the system default language.</string>
+    <string name="pref_override_language_system">Use system language</string>
+    <string name="pref_override_language_asturian">Always use Asturian</string>
+    <string name="spellcheck_information">This application includes a spell checker that you can use in any program on your phone.  To activate it, go to <b>Settings → Language and Input → Spell Checker</b> in your device setings.  It is not currently stable and you should use it with caution.</string>
+    <string name="enter_text_to_correct">Enter some text to spell check…</string>
+    <string name="translation_credit">Translations from eslema (University of Oviedo)</string>
+    <string name="translate_translate">Translate</string>
+</resources>

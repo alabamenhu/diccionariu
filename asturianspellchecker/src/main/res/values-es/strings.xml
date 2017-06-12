@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Corrector para el asturiano</string>
+    <string name="settings_greeting">Por favor, recuerda que el corrector está en una fase muy preliminar.  Si está errando mucho, debes desactivarlo.</string>
+    <string-array name="quotes">
+        <item>La simpatía es un lengua que puede escuchar el sordo y que puede ver el ciego.</item>
+        <item>El que no ama a su propio idioma es peor que un animal y un pez maloliente.</item>
+        <item>Morimos.  Quizás es el significado de la vida.  Pero hacemos lenguaje.  Quizás es la medida de nuestra vida.</item>
+        <item>Una cosa te demando\nDe muchísimo interés;\nEscribe de cuando en cuando,\nQue aquí estamos esperando</item>
+    </string-array>
+    <string-array name="author">
+        <item>Samuel Clements</item>
+        <item>José Protasio Rizal Alonso</item>
+        <item>Toni Morrison</item>
+        <item>Enriqueta González Rubín</item>
+    </string-array>
+    <string-array name="author_info">
+        <item>Autor estadounidense, también conocido como Mark Twain, famoso por su uso innovador del lenguaje regional.</item>
+        <item>Héroe nacional y autor filipino que escribió en castellano y tagálog</item>
+        <item>Autora estadounidense y galadornada del Premio Noble</item>
+        <item>Primera novelista asturiana, campeona de las mujeres y de la educación</item>
+    </string-array>
+    <string name="spellcheck_pref_override_language_system">Mostrar estos ajustes en el idioma del sistema</string>
+    <string name="spellcheck_pref_override_language_asturian">Siempre mostrar estos ajustes en asturiano</string>
+    <string name="spellcheck_pref_override_language_asturian_alt">Mostrar en asturianu (método alt. para algunos dispositivos)</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><!-- keystore asturies, key asturies -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.softastur.asturiandictionary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ast_cross_book"
+        android:label="@string/app_name"
+        android:theme="@style/DictionaryTheme"
+        android:targetSdkVersion="23"
+        tools:replace="android:theme">
+
+        <activity
+            android:name=".ActivityMain"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DictionaryConjugationView"
+            android:label="@string/title_activity_dictionary_conjugation_view"
+            android:theme="@style/DialogTheme"></activity>
+        <activity android:name=".ActivityDefineWord">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

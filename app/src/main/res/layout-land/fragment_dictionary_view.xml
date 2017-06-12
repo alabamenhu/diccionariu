@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".FragmentDictionary">
+
+    <ListView
+        android:layout_width="200sp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/dictionary_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dictionary_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/asturian_dark_blue"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dictionary_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/dictionary_info"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/dictionary_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dictionary_instructions"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/asturian_dark_blue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/entry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/entry_lede"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/definition"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toEndOf="@+id/section_label"
+                    android:layout_toRightOf="@+id/section_label"
+                    android:layout_weight="1"
+                    android:text="Word Lede"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/asturian_dark_blue"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/conjugate_button_old"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/conjugate"
+                    android:textColor="@color/asturian_dark_blue"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/conjugate_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#00ffffff"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/conjugation"
+                    android:tint="@color/asturian_dark_blue" />
+
+                <ImageButton
+                    android:id="@+id/favorite_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:background="#00ffffff"
+                    android:clickable="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/favorite_unset"
+                    android:tint="@color/asturian_dark_blue" />
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fadingEdge="vertical"
+                android:fadingEdgeLength="12dp">
+
+                <TextView
+                    android:id="@+id/definition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="true"
+                    android:text="Definition of the word goes here and ideally also with good formatting"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/loading_entry"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateOnly="false"
+                android:mirrorForRtl="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

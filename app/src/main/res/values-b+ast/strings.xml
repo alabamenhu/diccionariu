@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Diccionariu</string>
+    <string name="search_hint">Guetar en Diccionariu</string>
+
+    <string name="title_section1">Diccionariu</string>
+    <string name="title_section2">Correutor</string>
+    <string name="title_section3">Traductor</string>
+    <string name="title_section4">Axustes</string>
+    <string name="title_section5">Tocante a</string>
+    <string name="title_section6">Favoritos</string>
+
+    <string name="navigation_drawer_open">Abrir caxón de navegación</string>
+    <string name="navigation_drawer_close">Zarrar caxón de navegación</string>
+
+    <string name="action_example">Aición d\'exemplu</string>
+
+    <string name="action_settings">Axustes</string>
+    <string name="spellcheck_button">Comprobar ortografía</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hola cachu baleru</string>
+
+
+    <string-array name="part_of_speech_abbreviations">
+        <item>null</item>  <!-- 0. placeholder -->
+        <item>sust.</item> <!-- 1. noun -->
+        <item>v.</item> <!-- 2. verb -->
+        <item>alv.</item> <!-- 3. adverb -->
+        <item>ax.</item> <!-- 4. adjective -->
+        <item>prep.</item> <!-- 5. preposition -->
+        <item>pron.</item> <!-- 6. pronoun -->
+        <item>conx.</item> <!-- 7. conjunction -->
+        <item>apóc.</item> <!-- 8. apocope -->
+        <item>art.</item> <!-- 9. article -->
+        <item>interx.</item> <!-- 10. interjection -->
+        <item>contr.</item> <!-- 11. contraction -->
+        <item>lloc.</item> <!-- 12. phrasal -->
+        <item></item> <!-- 13. variable (relative, etc) -->
+    </string-array>
+    <string name="app_info_title">Diccionariu v. 0.6β</string>
+    <string name="app_info_license_title">Llicencia</string>
+    <string name="app_info_error_title">Si atopes un fallu…</string>
+    <string name="app_info_error">
+        Fáinoslo saber, por favor. Al atropar tanta información de toles fontes estremaes que
+	remananos, ye inevitable qu\'heba dellos fallos. Darréu que queremos apurrir una fonte rica
+	n\'información llingüística en llingua asturiana, lluchamos pola perfeición. Siempres que veas
+	un fallu, calca nel menú cimeru de la drecha na pantalla y esbilla «Informar fallu…».
+	¡Gracies pola to aida!
+    </string>
+
+    <string name="app_info_credits">
+        Aplicación programada por Matthew Stephen Stuckwisch.
+	Les entraes del diccionariu apúrrense so la llicencia de l\'Academia de la Llingua Asturiana.
+	Otra información llingüística (morfoloxía) ta atropada pol restu de miembros de Softastur dende
+	una variedá de fontes qu\'inclúin: OSLIN, Eslema y A.Ll.A.
+    </string>
+    <string name="app_info_license">
+        Esti programa (Diccionariu) ye software llibre.
+	Pues redistribuyilu y/o modificalu so los términos de la GNU General Public License
+	espublizada pola Free Software Foundation; o la versión 3 de la llicencia, o (según
+	escueyas) cualesquier versión nueva. Distribúise cola esperanza de que seya útil, pero
+	ENSÍN GARANTÍA DALA; incluso ensin la garantía implícita de COMERCIABILIDÁ o IDEONIDÁ PA
+	UN ENVÍS PARTICULAR. Mira la GNU General Public License pa más detalles.
+	Deberíes recibir una copia de la GNU General Public License xunto con esti programa.
+	Sinón, mira http://www.gnu.org/licenses pa más información.
+    </string>
+    <string name="title_activity_word_search">WordSearch</string>
+
+    <string name="hello_world">¡Hola mundu!</string>
+    <string name="oops_sorry">¡Perdón!</string>
+    <string name="feature_coming_soon">Esta carauterística ta entá so desendolcu. Esperamos que tea disponible perceo.</string>
+    <string name="dictionary_title">Diccionariu de l\'Academia de la Llingua Asturiana</string>
+    <string name="dictionary_info">Espublizóse nel añu 2000 dempués de décades de trabayu, esti diccionariu contién sobro quinientes mil entraes. Muncha xente apurrió un sofitu pervaloratible, dende la investigación de formes etimolóxiques y dialeutales fasta la recoyida de pallabres en campos modernos como la informática. Toles entraes son Copyright © 2000 de l’Academia de la Llingua Asturiana que llicenció\'l so usu nesti programa.</string>
+    <string name="dictionary_instructions">Pa usar el diccionariu, gueta una pallabra na barra de ferramientes.</string>
+    <string name="no_search_results">Nun s\'atoparon coincidencies.</string>
+    <string name="conjugate">Conxugar</string>
+    <string name="title_activity_dictionary_conjugation_view">Conxugaciones</string>
+    <string name="indicative">Indicativu</string>
+    <string name="subjunctive">Suxuntivu</string>
+    <string name="potential">Potencial</string>
+    <string name="present">Presente</string>
+    <string name="indefinite_preterite">Pretéritu indefiníu</string>
+    <string name="imperfect_preterite">Pretéritu imperfeutu</string>
+    <string name="pluperfect">Pluscuamperfeutu</string>
+    <string name="future">Futuru</string>
+    <string name="conditional">Condicional</string>
+    <string name="loading_conjugations">Cargando les conxugaciones…</string>
+    <string name="conjugation_warning">Nota: anguaño\'l conxugador ta n\'alpha y quiciabes dea formes incorreutes pa verbos irregulares.</string>
+    <string name="loading_entry">Cargando entrada…</string>
+    <string name="translate_castilian_to_asturian">Castellán a Asturianu</string>
+    <string name="translate_asturian_to_castilian">Asturianu a Castellán</string>
+    <string name="translate_direction">Direición</string>
+    <string name="obtaining_translation">Cargando traducción…</string>
+    <string name="enter_text_to_translate">Introduz un poco de testu pa traducir…</string>
+    <string name="name_spell_checker">Correutor ortográficu</string>
+    <string name="pref_override_language">Llingua d\'aplicación</string>
+    <string name="pref_override_language_summary">Munchos preseos Android nun te dexen escoyer l\'asturianu como llingua. Esta aplicación pue amosase n\'asturianu o na llingua\'l sistema.</string>
+    <string name="pref_override_language_system">Usar llingua\'l sistema</string>
+    <string name="pref_override_language_asturian">Usar siempres l\'asturianu</string>
+    <string name="spellcheck_information">Esta aplicación inclúi un correutor que pues usar en cualesquier programa nel to teléfonu. P\'activalu, vete a <b>Axustes → Llingua y tecláu → Correutor ortográficu</b> nos axustes del to teléfonu. Anguaño nun ye estable y deberíes usalu con curiáu.</string>
+    <string name="enter_text_to_correct">Introduz un poco de testu pa comprobar…</string>
+
+</resources>

@@ -1,0 +1,2 @@
+include ':app', ':asturianspellchecker'
+include ':asturiankeyboard'

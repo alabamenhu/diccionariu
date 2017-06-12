@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<spell-checker xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/spell_check_name"
+    android:settingsActivity=".ActivityMain"    >
+    <subtype
+        android:label="Asturianu"
+        android:subtypeLocale="ast" />
+    <subtype
+        android:label="Castellano"
+        android:subtypeLocale="es" />
+    <subtype
+        android:label="English"
+        android:subtypeLocale="en" />
+    <!--android:settingsActivity="org.softastur.asturianspellchecker.ActivitySpellCheckSettings"-->
+</spell-checker>

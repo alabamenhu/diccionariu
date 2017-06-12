@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Correutor pal asturianu</string>
+    <string name="spell_check_name">Correutor pal asturianu</string>
+    <string-array name="letters">
+        <item>a</item>
+        <item>a\u0301</item>
+        <item>b</item>
+        <item>c</item>
+        <item>d</item>
+        <item>e</item>
+        <item>e\u0301</item>
+        <item>f</item>
+        <item>g</item>
+        <item>h</item>
+        <item>h\u0323</item>
+        <item>i</item>
+        <item>i\u0301</item>
+        <item>j</item>
+        <item>k</item>
+        <item>l</item>
+        <item>l\u0323</item>
+        <item>m</item>
+        <item>n</item>
+        <item>n\u0303</item>
+        <item>o</item>
+        <item>o\u0301</item>
+        <item>p</item>
+        <item>q</item>
+        <item>r</item>
+        <item>s</item>
+        <item>t</item>
+        <item>u</item>
+        <item>u\u0301</item>
+        <item>u\u0308</item>
+        <item>v</item>
+        <item>w</item>
+        <item>x</item>
+        <item>y</item>
+        <item>z</item>
+        <item>-</item>
+        <item>\u2019</item><!-- apostrophe -->
+        <item>A</item>
+        <item>A\u0301</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>E\u0301</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>H\u0323</item>
+        <item>I</item>
+        <item>I\u0301</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>L\u0323</item>
+        <item>M</item>
+        <item>N</item>
+        <item>N\u0303</item>
+        <item>O</item>
+        <item>O\u0301</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>U\u0301</item>
+        <item>U\u0308</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>\u0301</item><!-- combining acute -->
+        <item>[</item>
+        <item>]</item>
+        <item>^</item>
+        <item>.</item>
+    </string-array>
+    <string name="title_activity_spellcheck_settings">SpellcheckSettings</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="settings_greeting">Please remember, the spell checker is in a very early stage.  It you find it crashes regularly, you should disable it.</string>
+    <string name="title_activity_spell_check_test">SpellCheckTest</string>
+    <string-array name="quotes">
+        <item>Kindness is the language which the deaf can hear and the blind can see.</item>
+        <item>He who does not love his own language is worse than an animal and smelly fish.</item>
+        <item>We die.  That may be the meaning of life.  But we do language.  That may be the measure of our lives.</item>
+        <item>One thing I demand\nWith such great interest;\nWrite once in a while,\nFor here we are waiting.</item>
+    </string-array>
+    <string-array name="author">
+        <item>Samuel Clements</item>
+        <item>José Protasio Rizal Alonso</item>
+        <item>Toni Morrison</item>
+        <item>Enriqueta González Rubín</item>
+    </string-array>
+    <string-array name="author_info">
+        <item>American author, also known as Mark Twain, famous for his innovative use of regional language.</item>
+        <item>Philippine national hero and author who wrote in Spanish and Tagalog.</item>
+        <item>American author and Nobel Prize Laureate</item>
+        <item>First Asturian novelist, champion of women and education</item>
+    </string-array>
+    <string name="spellcheck_pref_override_language_system">Display these settings in the system language</string>
+    <string name="spellcheck_pref_override_language_asturian">Always display these settings in Asturian</string>
+    <string name="spellcheck_pref_override_language_asturian_alt">Display in Asturian (alt. method for some devices)</string>
+</resources>

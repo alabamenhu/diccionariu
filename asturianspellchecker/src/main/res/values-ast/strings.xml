@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Correutor pal asturianu</string>
+    <string name="settings_greeting">Por favor, recuerda que\'l correutor ta nuna fase mui preliminar.  Si ta fallando muncho, debes desactivalu. (ast) </string>
+    <string-array name="quotes">
+        <item>La simpatía ye la llingua que pue sintir el sordu y que pue ver el ciegu.</item>
+        <item>El que nun ame’l so idioma ye peor qu’un animal o un pez olorosu.</item>
+        <item>Morrimos.  Quiciabes ye’l significáu de la vida.  Pero facemos llinguax.  Quiciabes ye la midida de la nuesa vida.</item>
+        <item>Una cosa te demando\nDe munchísimo interés;\nEscribe de cuando en cuando,\nQu’equí nós tamos esperando</item>
+    </string-array>
+    <string-array name="author">
+        <item>Samuel Clements</item>
+        <item>José Protasio Rizal Alonso</item>
+        <item>Toni Morrison</item>
+        <item>Enriqueta González Rubín</item>
+    </string-array>
+    <string-array name="author_info">
+        <item>Autor estauxunidense, tamién conocíu como Mark Twain, famosu pel so usu innovador del llinguax rexonal.</item>
+        <item>Héroe nacional y autor filipinu qu’escribió en castellán y tagálog</item>
+        <item>Autora estauxunidense y galadornada del Premiu Noble</item>
+        <item>Primera novelista asturiana, campeona de les muyeres de la educación</item>
+    </string-array>
+    <string name="spellcheck_pref_override_language_system">Amosar estos axustes nel idioma del sistema</string>
+    <string name="spellcheck_pref_override_language_asturian">Amosar siempres estos axustes n’asturianu</string>
+    <string name="spellcheck_pref_override_language_asturian_alt">Amosar n’asturianu (métodu alt. pa dellos preseos)</string>
+</resources>

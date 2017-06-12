@@ -1,0 +1,121 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentTranslation">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/translationLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/spellcheck_information"
+            android:id="@+id/textView8"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/text_to_correct"
+            android:layout_weight="1"
+            android:background="#110088FF"
+            android:editable="true"
+            android:gravity="top"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:padding="4dp"
+            android:hint="@string/enter_text_to_correct"
+            android:textColor="#FF000000"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/asturian_light_blue"
+            android:layout_weight="0"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/correct_button_layout"
+            android:padding="4dp">
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="20px"
+                android:layout_weight="1" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/spellcheck_button"
+                android:id="@+id/correct_button"
+                android:layout_gravity="center"
+                android:textColor="@color/asturian_dark_blue"
+                android:clickable="true"
+                android:onClick="onClick" />
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="20px"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:ems="10"
+                android:id="@+id/corrected_text"
+                android:background="#110088FF"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:textIsSelectable="true"
+                android:padding="4dp"
+                android:gravity="top"
+                android:textColor="#FF000000" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/loading_translation"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar4"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/obtaining_translation"
+                    android:id="@+id/obtaining_translation_message"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

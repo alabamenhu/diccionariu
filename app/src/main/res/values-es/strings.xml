@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Diccionariu</string>
+    <string name="search_hint">Buscar en el diccionario</string>
+
+    <string name="title_section1">Diccionario</string>
+    <string name="title_section2">Corrector</string>
+    <string name="title_section3">Traductor</string>
+    <string name="title_section4">Ajustes</string>
+    <string name="title_section5">Información</string>
+    <string name="title_section6">Favorita                                                                                                                                                                                s</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Ajustes</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="part_of_speech_abbreviations">
+        <item>null</item>  <!-- 0. placeholder -->
+        <item>sust.</item> <!-- 1. noun -->
+        <item>v.</item> <!-- 2. verb -->
+        <item>adv.</item> <!-- 3. adverb -->
+        <item>adj.</item> <!-- 4. adjective -->
+        <item>prep.</item> <!-- 5. preposition -->
+        <item>pron.</item> <!-- 6. pronoun -->
+        <item>conj.</item> <!-- 7. conjunction -->
+        <item>apóc.</item> <!-- 8. apocope -->
+        <item>art.</item> <!-- 9. article -->
+        <item>interj.</item> <!-- 10. interjection -->
+        <item>contr.</item> <!-- 11. contraction -->
+        <item>loc.</item> <!-- 12. phrasal -->
+        <item></item> <!-- 13. variable (relative, etc) -->
+    </string-array>
+    <string name="app_info_title">Diccionario asturiano v. 0.6β</string>
+    <string name="app_info_license_title">Licencia</string>
+    <string name="app_info_error_title">Si encuentras algún error…</string>
+    <string name="app_info_error">
+        Déjanos saber por favor.  Al compilar tanta información de la diversidad de fuentes
+        que tenemos, sin duda alguna habrá unos errores.  Ya que nuestra meta es proveer una
+        fuente para información lingüística detallada sobre la lengua asturiana, nos esforzamos
+        por la perfección.  Si ves un error, abre el menú en la parte superior de la pantalla y
+        escoge «Informar de un error…».  ¡Gracias por tu colaboración!
+    </string>
+
+    <string name="app_info_credits">
+        Aplicación programada por Matthew Stephen Stuckwisch.
+        Las entradas del diccionario están proveídas bajo licencia por la Academia de la Lingua Asturiana.
+        Otros datos lingüísticos (morfología, etc.) se compilaron gracias a la ayuda del resto del equipo
+        en SoftAstur de una variedad de fuentes incluyendo OSLIN, Eslema, y la A.Ll.A.
+    </string>
+    <string name="app_info_license">
+        Este programa (Diccionario asturianu) es software libre.
+        You can redistribute it and/or modify it under the terms of the GNU General Public
+        License as published by the Free Software Foundation; either version 3 of the License,
+        or (at your option) any later version.  It is distributed in the hope that it will be
+        useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+        You should have received a copy of the GNU General Public License along with this program.
+        If not, see http://www.gnu.org/licenses for more information.
+    </string>
+    <string name="title_activity_word_search">WordSearch</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="oops_sorry">¡Lo sentimos!</string>
+    <string name="feature_coming_soon">Todavía estamos desarrollando esta parte del programa.  Esperamos tenerla lista muy pronto.</string>
+    <string name="dictionary_title">Diccionario de la Academia de la Lengua Asturiana</string>
+    <string name="dictionary_info">Publicado en 2000 después de décadas de trabajo, este diccionario se compone de más de cincuenta mil entradas.  Innumerables personas contribuyeron al proyecto, desde investigar etimologías y formas dialectales hasta recoger palabras en uso dentro de campos modernos como la informática.  Todas las entradas son Copyright © 2000 l’Academia de Llingua Asturiana que de buen grado licenció su uso en este programa.</string>
+    <string name="dictionary_instructions">Para usar el diccionario, busca una palabra arriba en la barra de herramientas.</string>
+    <string name="no_search_results">No se pudo hallar ninguna palabra.</string>
+    <string name="conjugate">Conjugar</string>
+    <string name="indicative">Indicativo</string>
+    <string name="potential">Potencial</string>
+    <string name="subjunctive">Subjuntivo</string>
+    <string name="conditional">Condicional</string>
+    <string name="future">Futuro</string>
+    <string name="imperfect_preterite">Pretérito indefinido</string>
+    <string name="indefinite_preterite">Pretérito imperfecto</string>
+    <string name="pluperfect">Pluscuamperfecto</string>
+    <string name="present">Presente</string>
+    <string name="title_activity_dictionary_conjugation_view">Conjugaciones</string>
+    <string name="loading_conjugations">Cargando las conjugaciones…</string>
+    <string name="conjugation_warning">Aviso: el conjugador está en alfa y puede dar formas incorrectas con verbos irregulares.</string>
+    <string name="loading_entry">Cargando la entrada…</string>
+    <string name="translate_asturian_to_castilian">Asturiano a castellano</string>
+    <string name="translate_castilian_to_asturian">Castellano a asturiano</string>
+    <string name="translate_direction">Sentido</string>
+    <string name="obtaining_translation">Cargando la traducción…</string>
+    <string name="enter_text_to_translate">Introduce un poco de texto a traducir…</string>
+    <string name="spellcheck_button">Corregir</string>
+    <string name="name_spell_checker">Corrector de ortografía para el asturiano</string>
+    <string name="pref_override_language">Idioma de la aplicación</string>
+    <string name="pref_override_language_summary">Muchos aparatos Android no te permite escoger el asturiano como idioma.  Esta aplicación se puede usar o en asturiano o en el idioma por omisión del sistema.</string>
+    <string name="pref_override_language_system">Usar el idioma del sistema</string>
+    <string name="pref_override_language_asturian">Usar siempre el asturiano</string>
+    <string name="spellcheck_information">Incluye esa aplicación un corrector que puedes usar en todos los programas en tu dispositivo.  Para activarlo, ve a <b>Ajustes → Idioma y entrada → Corrector de ortografía</b> en los ajustes del dispositivo.  De momento, no es estable y solo debes usarlo con mucho cuidado.</string>
+    <string name="enter_text_to_correct">Introduce un poco de texto a corregir…</string>
+    <string name="translation_credit">Traducción de eslema (Universidad de Oviedo)</string>
+    <string name="translate_translate">Traducir</string>
+
+</resources>

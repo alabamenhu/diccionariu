@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:paddingLeft="8dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:paddingRight="8dp"
+    android:background="#8aa2b0">
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="16dp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="142dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/main_icon_resize"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Diccionariu asturianu"
+        android:id="@+id/textView10"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>
