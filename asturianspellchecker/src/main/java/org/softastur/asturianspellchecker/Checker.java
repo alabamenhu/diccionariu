@@ -21,9 +21,9 @@ public class Checker {
     private static volatile int[] booleanTrigram;
     private static volatile boolean[] booleanTrigramNew;
 
-    private static byte[] ascii = new byte[]{-128, 37, 39, 40, 41, 42, 44, 45, 46, 47, 49, 50, 51,
+    private static byte[] ascii = new byte[]{-128, 37, 39, 40, 41, 42, 44, 45, 46, 48, 50, 51, 52,
             //                                  @,  A,  B,  C,  D,  E,  F,  G,  H,  I,  J,  K,  L,
-            53, 55, 57, 59, 60, 61, 62, 63, 64, 67, 68, 69, 70, 71, -128, -128, -128, -128, -128,
+            54, 55, 57, 59, 60, 61, 62, 63, 64, 67, 68, 69, 70, 71, -128, -128, -128, -128, -128,
             //M, N,  O,  P,  Q,  R,  S,  T,  U,  V,  W,  X,  Y,  Z,    [,   bs,    ],    ^,    _,
             -128, 0, 2, 3, 4, 5, 7, 8, 9, 11, 13, 14, 15, 17, 18, 20, 22, 23, 24, 25, 26, 27, 30,
             // ´. a, b, c, d, e, f, g, h,  i,  j,  k,  l,  m,  n,  o,  p,  q,  r,  s,  t,  u,  v,
@@ -313,6 +313,52 @@ public class Checker {
 
         //System.out.println("ASTv - found misspelled word " + intArrayToString(word) + " (base expansion " + baseExpansion + ")");
         return false;
+    }
+
+
+    public String[] getRoots(int[] word) {
+        for(int i = 0, j = word.length; i < j; i++) {
+            if(word[i] < 0) return new String[] {};
+            word[i] = word[i]%37;
+        }
+        int baseExpansion = Words.getExpansion(word);
+        if(baseExpansion > 1) {
+            //System.out.println("ASTv     - quickchecking '" + intArrayToString( word) + "'  exp id " + baseExpansion);
+            if(!Expansions.forbidden(baseExpansion) && !Expansions.needsAffix(baseExpansion)) {
+                return new String[] {intArrayToString(word)};
+            }else if(Expansions.forbidden(baseExpansion)) {
+                return new String[] {};
+            }
+        }
+
+        //DeaffixedList morphs = getMorphs(word, PREFIX_RECURSION_DEPTH, SUFFIX_RECURSION_DEPTH, 0, 0, blankRootResult);
+        DeaffixedList morphs = getMorphs(word, PREFIX_RECURSION_DEPTH, 2, 0, 0, blankRootResult);
+
+        //System.out.println("ASTv   - retrieved " + morphs.count + " semi-valid morphs...");
+
+        RootResult potentialMorph = morphs.head;
+        finalCheck:
+        for(int i = 0, iMax = morphs.count; i < iMax; i++) {
+            potentialMorph = potentialMorph.next;
+            int expansionId = Words.getExpansion(potentialMorph.recomposed);
+            //System.out.println("ASTv     - recomposed '" + intArrayToString( morphs.get(i).recomposed) + "'  exp id " + expansionId);
+            // If expansionId == 0, the word does not exist;
+            // If expansionId == 1, the word does not take affixes
+            if(expansionId < 2) continue finalCheck;
+
+            if(
+                    Expansions.isPossible(
+                            expansionId,
+                            potentialMorph.morphs[0][Affixes.ID]
+                    )
+                    ) {
+
+                return new String[]{intArrayToString(potentialMorph.recomposed)};
+            }
+        }
+
+        //System.out.println("ASTv - found misspelled word " + intArrayToString(word) + " (base expansion " + baseExpansion + ")");
+        return new String[]{};
     }
 
     public final DeaffixedList getMorphs(int[] word, int prefixDepth, int suffixDepth, int currentPrefix, int currentSuffix, RootResult baseResult) {

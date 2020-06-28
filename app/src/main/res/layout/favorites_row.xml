@@ -7,31 +7,33 @@
     android:background="#bbffffff">
 
     <TextView
+        android:id="@+id/entry_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="12345"
-        android:id="@+id/entry_id"
         android:digits="5"
+        android:text="12345"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/foreground_contrast"
         android:visibility="gone" />
 
     <TextView
+        android:id="@+id/lede"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="word"
-        android:id="@+id/lede"
         android:layout_centerInParent="true"
-        android:textColor="#ff000000" />
+        android:text="word"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/foreground_primary" />
 
     <TextView
+        android:id="@+id/part_of_speech"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="interx."
-        android:id="@+id/part_of_speech"
-        android:textStyle="bold|italic"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:text="interx."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/foreground_secondary"
+        android:textStyle="bold|italic" />
 
 </RelativeLayout>

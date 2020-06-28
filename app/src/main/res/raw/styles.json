@@ -1,0 +1,29 @@
+{
+  "colors": {
+    "dark":"#ff000000",
+    "light":"#ff555555",
+    "darkBlue":""
+  },
+  "textFormats": {
+    "definition": {
+
+    },
+    "explicative": {
+
+    },
+    "phrase": {
+
+    },
+    "subtext": {
+
+    },
+    "number": {
+
+    },
+    "link": {
+
+    }
+
+
+  }
+}

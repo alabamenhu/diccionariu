@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="asturian_dark_blue">#004278</color>
+    <color name="asturian_blue">#FF30A0FF</color>
+    <color name="asturian_light_blue">#FF90C0FF</color>
+    <color name="asturian_super_light_blue">#FF90C0FF</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#FFFFFFFF</color>
+
+    <color name="foreground_primary">#ffeeeeee</color>
+    <color name="foreground_secondary">#ffaaaaaa</color>
+    <color name="foreground_contrast">#ff30a0ff</color>
+    <color name="foreground_bright">#ff004278</color>
+    <color name="foreground_popup">#ffcccccc</color>
+    <color name="background_primary">#ff000000</color>
+    <color name="highlight_primary">#ffaa9c09</color>
+
+    <color name="foreground_header">#ffffffff</color>
+    <color name="background_header">#ff004278</color>
+    <color name="background_header_contrast">#ff30a0ff</color>
+
+    <color name="background_popup">#bb000000</color>
+    <color name="background_popup_highlight">#15ffffff</color>
+
+    <color name="asturian_blue1">#1190C0FF</color>
+    <color name="asturian_blue2">#2290C0FF</color>
+    <color name="asturian_blue3">#3390C0FF</color>
+    <color name="asturian_blue4">#1130a0ff</color>
+    <color name="asturian_blue5">#2230a0ff</color>
+    <color name="asturian_blue6">#3330a0ff</color>
+
+</resources>

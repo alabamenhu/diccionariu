@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -23,6 +25,10 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.softastur.asturiandictionary.drawer.NavigationDrawerFragment;
+import org.softastur.asturiandictionary.entries.Entry;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -38,7 +44,7 @@ import java.util.Locale;
 
 public class ActivityMain extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        FragmentDictionary.DictionaryViewCallbacks,
+        Entry.DictionaryViewCallbacks,
         SearchView.OnQueryTextListener,
         View.OnClickListener,
         MenuItemCompat.OnActionExpandListener,
@@ -54,14 +60,17 @@ public class ActivityMain extends AppCompatActivity
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private NavigationDrawerFragment navigationDrawer;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    private Toolbar mToolbar;
+    private Toolbar toolbar;
     private SearchResultAdapter searchAdapter;
+    /**
+     * Other objects that may be useful now or later
+     */
 
     public final int ACTION_NONE        = 0;
     public final int ACTION_LOOKUP_WORD = 1;
@@ -77,31 +86,24 @@ public class ActivityMain extends AppCompatActivity
     private static final int SECTION_ABOUT = 5;
     private static final int SECTION_FAVORITES = 6;
     private static final int SECTION_ENTRY = 7;
+    private static final int SECTION_DAILY = 8;
+    private static final int SECTION_GAME = 9;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Nightmode is supposed to be called before onCreate(), supposedly.
+        // It seemed to work okay being called afterwards, but I'll follow recommendation
+        // per http://blog.iamsuleiman.com/daynight-theme-android-tutorial-example/ for now
+        checkNightMode();
         super.onCreate(savedInstanceState);
-
-        // MUST BE FIRST -- changes language to Asturian if needed
-        checkInterfaceLocale();
+        checkInterfaceLocale(); // this needs to be done before loading any resource
 
         // UNIVERSAL SET UP
         // Here we load the views, toolbar, and drawer.  This should be done *always*
         // and is needed in order to properly set up
-        setContentView(R.layout.activity_main);
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        searchAdapter = new SearchResultAdapter(this,0, new ArrayList());
-        ListView lv = ((ListView)findViewById(R.id.search_suggestions));
-        lv.setAdapter(searchAdapter);
-        lv.setOnItemClickListener(this);
+        setupInterface();
 
 
         // RESTORE THE SAVED STATE
@@ -112,6 +114,7 @@ public class ActivityMain extends AppCompatActivity
             // we probably had a screen rotation or other configuration change
             int section = savedInstanceState.getInt(STATE_SECTION,SECTION_HOME);
 
+            System.out.println("asturianu - should be loading section #" + section);
             // determine the screen we were on and load it.
             loadSection(section);
 
@@ -120,7 +123,7 @@ public class ActivityMain extends AppCompatActivity
         }else if(getIntent().getIntExtra("action",ACTION_NONE) == ACTION_LOOKUP_WORD) {
             // User wanted to look up a word via the extra.
             // Note that currently the server does not currently attempt to do
-            // any spell checking on the word, which grreatly reduces its utility.
+            // any spell checking on the word, which greatly reduces its utility.
             loadSection(SECTION_ENTRY);
             // TODO FINISH
         }else if(getIntent().getIntExtra("action",ACTION_NONE) == ACTION_TRANSLATE) {
@@ -143,38 +146,48 @@ public class ActivityMain extends AppCompatActivity
         mTitle = getTitle();
 
 
-
         // Set up the drawer.
+    }
+
+    private void setupInterface() {
+        setContentView(R.layout.activity_main2);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        navigationDrawer = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+        navigationDrawer.setToolbar(toolbar);
+        navigationDrawer.setUp(
+                R.id.navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        ListView lv = ((ListView)findViewById(R.id.search_suggestions));
+        searchAdapter = new SearchResultAdapter(this,0, new ArrayList(), lv);
+        lv.setAdapter(searchAdapter);
+        lv.setOnItemClickListener(this);
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        int section;
-        switch(position) {
-            // case 0 is the icon and cannot be clicked
-            case 1: section = SECTION_HOME; break;
-            case 2: section = SECTION_FAVORITES; break;
-            case 3: section = SECTION_SPELLCHECK; break;
-            case 4: section = SECTION_TRANSLATE; break;
-            case 5: section = SECTION_SETTINGS; break;
-            case 6: section = SECTION_ABOUT; break;
-            default:
-                mTitle = getString(R.string.title_section1);
-                mTitle = getString(R.string.title_section6);
-                mTitle = getString(R.string.title_section2);
-                mTitle = getString(R.string.title_section3);
-                mTitle = getString(R.string.title_section4);
-                mTitle = getString(R.string.title_section5);
-                section = SECTION_HOME;
-                break;
-        }
+        int[] sections = new int[] {
+                0, // header
+                0, // spacer
+                SECTION_HOME,
+                SECTION_DAILY,
+                SECTION_FAVORITES,
+                SECTION_SPELLCHECK,
+                SECTION_TRANSLATE,
+                SECTION_GAME,
+                0, // spacer
+                SECTION_SETTINGS,
+                SECTION_ABOUT
+        };
+        int section = sections[position];
         loadSection(section);
     }
 
     private void loadSection(int section) {
 
-        // bail out if we've already loaded it
         if(section == currentSection) return;
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -199,6 +212,10 @@ public class ActivityMain extends AppCompatActivity
             case SECTION_FAVORITES:
                 fragment = fragmentManager.findFragmentByTag("favorites"); // TODO static magic numbers
                 break;
+            case SECTION_DAILY:
+                System.out.println("asturianu - should be loading daily");
+                fragment = fragmentManager.findFragmentByTag("daily"); // TODO static magic numbers
+                break;
             case SECTION_HOME:
             case SECTION_DICTIONARY:
             default:
@@ -208,9 +225,12 @@ public class ActivityMain extends AppCompatActivity
         }
 
         if(fragment != null) {
+            // the fragment already exists, so we just replace it
+
             fragmentManager.beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
         }else{
             // in this case, we need to make it first
+            System.out.println("asturianu - DOESN'T EXIST SO WE HAVE TO MAKE IT FROM SCRATCH :-(");
             String tag;
             switch(section) {
                 case SECTION_ABOUT: fragment = FragmentAbout.newInstance("",""); tag = "about"; break;
@@ -218,10 +238,14 @@ public class ActivityMain extends AppCompatActivity
                 case SECTION_SPELLCHECK: fragment = FragmentSpelling.newInstance("",""); tag = "spellcheck"; break;
                 case SECTION_TRANSLATE: fragment = FragmentTranslation.newInstance("",""); tag = "translate"; break;
                 case SECTION_FAVORITES: fragment = FragmentFavorites.newInstance("",""); tag = "favorites"; break;
-                case SECTION_DICTIONARY:
-                case SECTION_HOME:default: fragment = FragmentDictionary.newInstance(FragmentDictionary.NO_ACTION,0); tag = "dictionary"; break;
+                case SECTION_DICTIONARY: fragment = Entry.newInstance(Entry.RELOAD_ENTRY,0); tag = "dictionary"; break;
+                case SECTION_DAILY: fragment = FragmentDailyWord.newInstance(Entry.SHOW_ENTRY,0); tag = "daily";
+                    System.out.println("asturianu - should be loading daily");
+                    break;
+                case SECTION_HOME:
+                    default: fragment = Entry.newInstance(Entry.NO_ACTION,0); tag = "dictionary"; break;
             }
-
+            // now we can do the replacing
             fragmentManager.beginTransaction().replace(R.id.container,fragment, tag).addToBackStack(null).commit();
         }
 
@@ -244,40 +268,40 @@ public class ActivityMain extends AppCompatActivity
         updateTitleBar();
     }
 
-             private void updateTitleBar() {
-                 String newTitle;
-                 switch (currentSection) {
-                     case SECTION_DICTIONARY:
-                         SECTION_HOME:
-                         newTitle = getString(R.string.title_section1);
-                         break;
-                     case SECTION_FAVORITES:
-                         newTitle = getString(R.string.title_section6);
-                         break;
-                     case SECTION_SPELLCHECK:
-                         newTitle = getString(R.string.title_section2);
-                         break;
-                     case SECTION_TRANSLATE:
-                         newTitle = getString(R.string.title_section3);
-                         break;
-                     case SECTION_SETTINGS:
-                         newTitle = getString(R.string.title_section4);
-                         break;
-                     case SECTION_ABOUT:
-                         newTitle = getString(R.string.title_section4);
-                         break;
-                     default:
-                         newTitle = getString(R.string.title_section1);
-                         break;
-                 }
+    private void updateTitleBar() {
+        String newTitle;
+        switch (currentSection) {
+            case SECTION_DICTIONARY:
+                newTitle = ""; //getString(R.string.title_section1);
+                break;
+            case SECTION_FAVORITES:
+                newTitle = getString(R.string.title_section6);
+                break;
+            case SECTION_SPELLCHECK:
+                newTitle = getString(R.string.title_section2);
+                break;
+            case SECTION_TRANSLATE:
+                newTitle = getString(R.string.title_section3);
+                break;
+            case SECTION_SETTINGS:
+                newTitle = getString(R.string.title_section4);
+                break;
+            case SECTION_ABOUT:
+                newTitle = getString(R.string.title_section4);
+                break;
+            default:
+                newTitle = getString(R.string.title_section1);
+                break;
+        }
 
-                 ActionBar actionBar = getSupportActionBar();
-                 actionBar.setTitle(newTitle);
-             }
+        toolbar.setTitle(newTitle);
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setTitle(newTitle);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+        if (!navigationDrawer.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
@@ -318,6 +342,9 @@ public class ActivityMain extends AppCompatActivity
             System.out.println("asturianu - initiated search request");
             View suggestions = findViewById(R.id.search_suggestions);
             suggestions.setVisibility(View.VISIBLE);
+            View blackout = findViewById(R.id.search_suggestions_blackout);
+            blackout.setVisibility(View.VISIBLE);
+
             //onSearchRequested();
             return true;
         }
@@ -335,9 +362,9 @@ public class ActivityMain extends AppCompatActivity
     public boolean onQueryTextChange(String string) {
         System.out.println("asturianu test search " + string);
         // Only return results if we have more 3 letters or more
-        if(string.length() > 0) {
+        //if(string.length() > 0) {
             searchAdapter.doQuery(string);
-        }
+        //}
         return true; // tells the SearchView to do nothing
     }
 
@@ -359,6 +386,7 @@ public class ActivityMain extends AppCompatActivity
         if(item.getItemId() == R.id.action_search) {
             // show the search results
             findViewById(R.id.search_suggestions).setVisibility(View.VISIBLE);
+            findViewById(R.id.search_suggestions_blackout).setVisibility(View.VISIBLE);
         }
         return true;
     }
@@ -370,31 +398,51 @@ public class ActivityMain extends AppCompatActivity
         if(item.getItemId() == R.id.action_search) {
             // hide the search results
             findViewById(R.id.search_suggestions).setVisibility(View.GONE);
+            findViewById(R.id.search_suggestions_blackout).setVisibility(View.GONE);
         }
         return true;
     }
 
     public void onItemClick(AdapterView adapterView, View view, int position, long id) {
-        onLoadWord((int) id);
+        System.out.println("asturianu - THE TEXT SEARCHED WAS **" + ((TextView)view.findViewById(R.id.lede)).getText() + "**");
+        onLoadWord((int) id, view.findViewById(R.id.lede));
     }
 
-    public void onLoadWord(int id) {
+    public void onLoadWord(int id, View transitionFromView) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment;
-        fragment = FragmentDictionary.newInstance(FragmentDictionary.SHOW_ENTRY,id);
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        if(currentSection == SECTION_DICTIONARY || currentSection == SECTION_HOME) {
+            fragment = fragmentManager.findFragmentByTag("dictionary");
+            ((Entry) fragment).lazyLoad(id,"loading",1); // to do grab from item
+        }else {
+
+            fragment = Entry.newInstance(Entry.SHOW_ENTRY, id);
+            currentSection = SECTION_DICTIONARY;
+
+        /* despite attempting to make this transaction work, it does not appear
+           to actually work correctly in practice.  It's a shame, because it would be look
+           really cool if it could.
+         */
+
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            fragment.setSharedElementEnterTransition(new TextResize());
+            fragment.setEnterTransition(new android.transition.Fade());
+            fragment.setExitTransition(new android.transition.Fade());
+            fragment.setSharedElementReturnTransition(new TextResize());
+        }*/
+
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            //if(transitionFromView != null) transaction.addSharedElement(transitionFromView, "wordInEntry");
+            transaction.replace(R.id.container, fragment);
+            transaction.commit();
+        }
         findViewById(R.id.search_suggestions).setVisibility(View.GONE);
+        findViewById(R.id.search_suggestions_blackout).setVisibility(View.GONE);
         if(searchMenuItem != null) searchMenuItem.collapseActionView();
-        mTitle = getString(R.string.title_section1);
+        mTitle = ""; // We now blank the title, to make it look prettier with the large text
+        //mTitle = getString(R.string.title_section1);
     }
 
-    public void onShowConjugations(int id) {
-        Intent intent = new Intent(this, DictionaryConjugationView.class);
-        intent.putExtra("id", id);
-        startActivity(intent);
-    }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -443,6 +491,32 @@ public class ActivityMain extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
     }
 
+
+    private void checkNightMode() {
+        int nightmode =
+                getPreferences(Context.MODE_PRIVATE)
+                        .getInt(
+                                FragmentSettings.KEY_PREF_NIGHTMODE,
+                                FragmentSettings.VALUE_PREF_NIGHTMODE_SYSTEM
+                        );
+
+        switch(nightmode) {
+            case FragmentSettings.VALUE_PREF_NIGHTMODE_NIGHT:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+            case FragmentSettings.VALUE_PREF_NIGHTMODE_DAY:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case FragmentSettings.VALUE_PREF_NIGHTMODE_AUTO:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+                break;
+            case FragmentSettings.VALUE_PREF_NIGHTMODE_SYSTEM:
+            default:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+        }
+    }
+
     private void checkInterfaceLocale() {
         boolean overrideLanguage =
                 getPreferences(Context.MODE_PRIVATE)
@@ -482,6 +556,6 @@ public class ActivityMain extends AppCompatActivity
     }
 
     public void onLoadEntry(int i) {
-        onLoadWord(i);
+        onLoadWord(i,null);
     }
  }

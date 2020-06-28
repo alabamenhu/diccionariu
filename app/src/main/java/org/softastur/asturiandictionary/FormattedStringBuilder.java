@@ -1,75 +1,106 @@
 package org.softastur.asturiandictionary;
 
-import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import java.util.ArrayList;
 
 /**
- * Created by Matthew Stuckwisch on 6 May 2015.
+ * Created by guifa on 9/11/17.
  */
-public class FormattedStringBuilder  {
 
-    private ArrayList<StringFormatPair> pieces = new ArrayList<StringFormatPair>();
+public class FormattedStringBuilder {
+    private ArrayList<Format> stack;
+    private SpannableStringBuilder builder;
+    private final boolean overlappable;
+    private Format base;
+    private Format currentFormat;
 
-    public FormattedStringBuilder() {
-
+    public FormattedStringBuilder(boolean overlappable) {
+        builder = new SpannableStringBuilder();
+        stack = new ArrayList<>();
+        base = new Format(0,new Object[]{},null);
+        currentFormat = base;
+        this.overlappable = overlappable;
     }
 
-    public FormattedStringBuilder append(String string, Object... format) {
-        pieces.add(
-                new StringFormatPair(string,format)
+
+    public FormattedStringBuilder append(String text, Object[] spans) {
+        beginFormat(spans);
+        append(text);
+        endFormat();
+        return this;
+    }
+    public FormattedStringBuilder append(String text) {
+        builder.append(text);
+        return this;
+    }
+    public FormattedStringBuilder append(CharSequence text) {
+        builder.append(text);
+        return this;
+    }
+    public FormattedStringBuilder beginFormat(Object[] spans) {
+        currentFormat = currentFormat.addChild(
+                new Format(
+                        builder.length(),
+                        spans,
+                        currentFormat
+                )
         );
         return this;
     }
 
-    public FormattedStringBuilder append(String string) {
-        pieces.add(
-                new StringFormatPair(string,new Object[]{})
-        );
+    private void endWithoutOverlap() {
+        Format format = stack.remove(0);
+        int start = format.start;
+        int end = builder.length();
+
+        for(Object span : format.spans) {
+            builder.setSpan(
+                    span, start, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE
+            );
+        }
+    }
+
+    public FormattedStringBuilder endFormat() {
+        if(currentFormat.parent != null) {
+            currentFormat.end = builder.length();
+            currentFormat = currentFormat.parent;
+        }else{
+            throw new IllegalStateException("asturianu - the formatted string builder cannot end a format when there isn't any left.");
+        }
         return this;
     }
 
     public CharSequence build() {
-
-        // Generate the base string
-        StringBuilder stringBuilder = new StringBuilder();
-        for(StringFormatPair piece : pieces) {
-            stringBuilder.append(piece.getString());
-        }
-
-        // String builder from our generated string
-        SpannableString result = new SpannableString(stringBuilder.toString());
-
-        int currentPosition = 0;
-
-        // Selectively apply the formats
-        for(StringFormatPair piece : pieces) {
-            for(Object format : piece.getFormats()) {
-                if(format != null) {
-                    result.setSpan(
-                            format,
-                            currentPosition,
-                            currentPosition + piece.getString().length(),
-                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                }
-            }
-            currentPosition += piece.getString().length();
-        }
-        return result.subSequence(0,result.length());
+        // find the top parent
+        apply(base.children);
+        return builder;
     }
 
-    private class StringFormatPair {
-        private String mString;
-        private Object[] mFormats;
-        public StringFormatPair(String string, Object... format) {
-            mString = string;
-            mFormats = format;
+    private void apply(ArrayList<Format> formats) {
+        for(Format format : formats) {
+            for(Object span : format.spans) {
+                builder.setSpan(span,format.start,format.end,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            }
+            apply(format.children);
         }
-        public String getString() {
-            return mString;
+    }
+
+    private static class Format {
+        final int start;
+        int end;
+        final Object[] spans;
+        final ArrayList<Format> children = new ArrayList<>();;
+        final Format parent;
+
+        public Format(int start, Object[] spans,Format parent) {
+            this.start = start;
+            this.spans = spans;
+            this.parent = parent;
         }
-        public Object[] getFormats() {
-            return mFormats;
+        public Format addChild(Format format) {
+            children.add(format);
+            return format;
         }
     }
 

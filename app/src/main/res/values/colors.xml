@@ -4,8 +4,24 @@
     <color name="asturian_blue">#FF30A0FF</color>
     <color name="asturian_light_blue">#FF90C0FF</color>
     <color name="asturian_super_light_blue">#FF90C0FF</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#ffffff</color>
     <color name="black">#FFFFFFFF</color>
+
+    <color name="foreground_primary">#000000</color>
+    <color name="foreground_secondary">#ff555555</color>
+    <color name="foreground_contrast">#004278</color>
+    <color name="foreground_bright">#ff30a0ff</color>
+    <color name="foreground_popup">#333333</color>
+    <color name="background_primary">#fafafa</color>
+    <color name="highlight_primary">#fff7ea60</color>
+
+    <color name="foreground_header">#ffffff</color>
+    <color name="background_header">#30a0ff</color>
+    <color name="background_header_contrast">#004278</color>
+
+    <color name="background_popup">#ddffffff</color>
+    <color name="background_popup_highlight">#15000000</color>
+
 
     <color name="asturian_blue1">#1190C0FF</color>
     <color name="asturian_blue2">#2290C0FF</color>

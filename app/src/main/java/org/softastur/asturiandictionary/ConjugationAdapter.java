@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,19 +21,19 @@ import java.util.List;
  */
 public class ConjugationAdapter extends ArrayAdapter {
 
-    Context mContext;
+    Context context;
     ArrayList mResults = new ArrayList<ConjugationTable>();
-    String[] mPartOfSpeech;
+    String[] partsOfSpeech;
     String mQuery;
     long mMostRecentResult = 0;
 
     public ConjugationAdapter(Context context, int resource, List objects) {
         super(context, resource, objects);
-        mContext = context;
-        mPartOfSpeech = context.getResources().getStringArray(R.array.part_of_speech_abbreviations);
+        this.context = context;
+        partsOfSpeech = context.getResources().getStringArray(R.array.part_of_speech_abbreviations);
     }
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View view = inflater.inflate(R.layout.conjugation_table_2x3, null);
         ConjugationTable table = (ConjugationTable) getItem(position);
 
@@ -54,28 +53,6 @@ public class ConjugationAdapter extends ArrayAdapter {
         third_plural.setText(TextUtils.join("\n", table.third_plural));
 
         label.setText(table.label);
-
-/*        ArrayList<Integer> col1 = new ArrayList<Integer>();
-        col1.add(Integer.valueOf(first_singular.getWidth()));
-        col1.add(Integer.valueOf(second_singular.getWidth()));
-        col1.add(Integer.valueOf(third_singular.getWidth()));
-
-        int col1Width = maxInt(getTextViewWidth(first_singular),getTextViewWidth(second_singular), getTextViewWidth(third_singular));
-        int col2Width = maxInt(getTextViewWidth(first_plural),getTextViewWidth(second_plural), getTextViewWidth(third_plural));
-
-        int row1Height = maxInt(getTextViewHeight(first_singular),getTextViewHeight(first_plural));
-        int row2Height = maxInt(getTextViewHeight(second_singular),getTextViewHeight(second_plural));
-        int row3Height = maxInt(getTextViewHeight(third_singular),getTextViewHeight(third_plural));
-
-        System.out.println("Sizes are C1:" + col1Width + " C2:" + col2Width);
-
-        first_singular.setLayoutParams(new TableRow.LayoutParams(col1Width,row1Height));
-        second_singular.setLayoutParams(new TableRow.LayoutParams(col1Width,row2Height));
-        third_singular.setLayoutParams(new TableRow.LayoutParams(col1Width,row3Height));
-        first_plural.setLayoutParams(new TableRow.LayoutParams(col2Width,row1Height));
-        second_plural.setLayoutParams(new TableRow.LayoutParams(col2Width,row2Height));
-        third_plural.setLayoutParams(new TableRow.LayoutParams(col2Width,row3Height));
-*/
         return view;
     }
     public static class ConjugationTable {

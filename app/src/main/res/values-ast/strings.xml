@@ -2,4 +2,10 @@
 <resources>
     <string name="translation_credit">Traducción d\'Eslema (Universidá d\'Uviéu)</string>
     <string name="translate_translate">Tornar</string>
+    <string name="pref_nightmode">Mou nueche</string>
+    <string name="pref_nightmode_summary">El mou nueche usa una apariencia más oscura que se pue prender al atapecer y apagar al amanecer.  Si’l to preséu nun ufre’l mou nueche, el mou del sistema sedrá’l mou día siempres.</string>
+    <string name="pref_nightmode_system">Usar l’axuste del preséu</string>
+    <string name="pref_nightmode_auto">Trocar automático</string>
+    <string name="pref_nightmode_night">Siempres mou nueche</string>
+    <string name="pref_nightmode_day">Siempres mou día</string>
 </resources>

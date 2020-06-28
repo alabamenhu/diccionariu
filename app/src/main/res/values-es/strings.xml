@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Diccionariu</string>
-    <string name="search_hint">Buscar en el diccionario</string>
+    <string name="search_hint">Escribe una palabra para buscar el diccionario.</string>
 
     <string name="title_section1">Diccionario</string>
     <string name="title_section2">Corrector</string>
@@ -20,6 +20,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="entry_definitions">Acepciones</string>
+    <string name="entry_phrases">Locuciones</string>
+    <string name="entry_forms">Formas</string>
+    <string name="entry_unknown_word">¿ … ?</string>
+
+    <string name="entry_forms_not_available">Actualmente las formas solo son disponibles para los verbos.</string>
 
     <string-array name="part_of_speech_abbreviations">
         <item>null</item>  <!-- 0. placeholder -->
@@ -35,6 +41,22 @@
         <item>interj.</item> <!-- 10. interjection -->
         <item>contr.</item> <!-- 11. contraction -->
         <item>loc.</item> <!-- 12. phrasal -->
+        <item></item> <!-- 13. variable (relative, etc) -->
+    </string-array>
+    <string-array name="parts_of_speech">
+        <item>null</item>  <!-- 0. placeholder -->
+        <item>sustantivo</item> <!-- 1. noun -->
+        <item>verbo</item> <!-- 2. verb -->
+        <item>adverbio</item> <!-- 3. adverb -->
+        <item>adjetivo</item> <!-- 4. adjective -->
+        <item>preposición</item> <!-- 5. preposition -->
+        <item>pronombre</item> <!-- 6. pronoun -->
+        <item>conjunción</item> <!-- 7. conjunction -->
+        <item>apócope</item> <!-- 8. apocope -->
+        <item>artículo</item> <!-- 9. article -->
+        <item>interjección</item> <!-- 10. interjection -->
+        <item>contracción</item> <!-- 11. contraction -->
+        <item>locución</item> <!-- 12. phrasal -->
         <item></item> <!-- 13. variable (relative, etc) -->
     </string-array>
     <string name="app_info_title">Diccionario asturiano v. 0.6β</string>
@@ -72,7 +94,7 @@
     <string name="dictionary_title">Diccionario de la Academia de la Lengua Asturiana</string>
     <string name="dictionary_info">Publicado en 2000 después de décadas de trabajo, este diccionario se compone de más de cincuenta mil entradas.  Innumerables personas contribuyeron al proyecto, desde investigar etimologías y formas dialectales hasta recoger palabras en uso dentro de campos modernos como la informática.  Todas las entradas son Copyright © 2000 l’Academia de Llingua Asturiana que de buen grado licenció su uso en este programa.</string>
     <string name="dictionary_instructions">Para usar el diccionario, busca una palabra arriba en la barra de herramientas.</string>
-    <string name="no_search_results">No se pudo hallar ninguna palabra.</string>
+    <string name="no_search_results">No hay resultados para «%s»</string>
     <string name="conjugate">Conjugar</string>
     <string name="indicative">Indicativo</string>
     <string name="potential">Potencial</string>
@@ -102,5 +124,11 @@
     <string name="enter_text_to_correct">Introduce un poco de texto a corregir…</string>
     <string name="translation_credit">Traducción de eslema (Universidad de Oviedo)</string>
     <string name="translate_translate">Traducir</string>
+    <string name="pref_nightmode">Modo nocturno</string>
+    <string name="pref_nightmode_summary">El modo nocturno usa una apariencia más oscura que se puede activar al anochecer y desactivar al amanecer.  Si tu dispositivo no ofrece el modo nocturno, el modo del sistema será el modo diurno.</string>
+    <string name="pref_nightmode_system">Usar el ajuste del dispositivo</string>
+    <string name="pref_nightmode_auto">Cambiar automáticamente</string>
+    <string name="pref_nightmode_night">Siempre modo nocturno</string>
+    <string name="pref_nightmode_day">Siempre modo diurno</string>
 
 </resources>

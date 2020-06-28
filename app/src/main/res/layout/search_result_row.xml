@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="fill_parent"
-    android:layout_height="36dp"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_popup"
     android:descendantFocusability="blocksDescendants"
-    android:padding="8dp"
-    android:background="#bbffffff">
+    android:elevation="6dp"
+    android:orientation="horizontal"
+    android:padding="8dp">
 
     <TextView
+        android:id="@+id/entry_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="12345"
-        android:id="@+id/entry_id"
         android:digits="5"
+        android:text="12345"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:visibility="gone" />
 
     <TextView
+        android:id="@+id/form_of"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="word"
-        android:id="@+id/lede"
+        android:layout_alignParentBottom="false"
         android:layout_centerInParent="true"
-        android:textColor="#ff000000" />
+        android:layout_centerVertical="false"
+        android:layout_marginRight="4sp"
+        android:layout_toLeftOf="@+id/lede"
+        android:text="form of"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="italic"
+        android:visibility="gone" />
 
     <TextView
+        android:id="@+id/lede"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="interx."
+        android:layout_centerInParent="true"
+        android:text="word"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff000000"
+        android:transitionName="wordFromSearch" />
+
+    <TextView
         android:id="@+id/part_of_speech"
-        android:textStyle="bold|italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:text="interx."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
 
 </RelativeLayout>

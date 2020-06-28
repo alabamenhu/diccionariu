@@ -130,7 +130,7 @@ public class FragmentSpelling extends Fragment implements View.OnClickListener{
 
     public void onClick(View view) {
         String originalText = original.getText().toString();
-        FormattedStringBuilder result = new FormattedStringBuilder();
+        FormattedStringBuilder result = new FormattedStringBuilder(true);
         StringBuilder builder = new StringBuilder("");
         boolean processingText = false;
 
@@ -143,7 +143,9 @@ public class FragmentSpelling extends Fragment implements View.OnClickListener{
                     builder.append(letter);
                 }else{
                     // first letter after punctuation
-                    result.append(builder.toString(), new ForegroundColorSpan(0xff000000));
+                    result.beginFormat(new Object[]{new ForegroundColorSpan(0xff000000)})
+                            .append(builder.toString())
+                            .endFormat();
                     builder = new StringBuilder(letter);
                     processingText = true;
                 }
@@ -155,9 +157,13 @@ public class FragmentSpelling extends Fragment implements View.OnClickListener{
                     builder = new StringBuilder(letter);
                     if(word.length() > 0) {
                         if(checker.getRoot(Checker.textToIntArray(word.toLowerCase()))) {
-                            result.append(word, new ForegroundColorSpan(0xff000000));
+                            result.beginFormat(new Object[] {new ForegroundColorSpan(0xff000000)})
+                                    .append(word)
+                                    .endFormat();
                         }else{
-                            result.append(word, new ForegroundColorSpan(0xffaa0000));
+                            result.beginFormat(new Object[] {new ForegroundColorSpan(0xffaa0000)})
+                                    .append(word)
+                                    .endFormat();
                         }
                     }
                     processingText = false;

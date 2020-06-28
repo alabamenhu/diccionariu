@@ -1,6 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_header"
+        android:paddingBottom="10dp"
+        android:paddingTop="8dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/leme"
+            android:gravity="center"
+            android:text="axetivu"
+            android:textColor="@color/foreground_header"
+            android:textStyle="italic" />
+
+        <ImageButton
+            android:id="@+id/favorite_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="#00ffffff"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/favorite_unset"
+            android:tint="@color/background_header_contrast" />
+
+        <TextView
+            android:id="@+id/leme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="guapu"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/foreground_header"
+            android:transitionName="wordInEntry" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/intro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/dictionary_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_header"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="@string/dictionary_title"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/foreground_header"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dictionary_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="@string/dictionary_info"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/foreground_primary" />
+
+        <TextView
+            android:id="@+id/dictionary_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/dictionary_instructions"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/foreground_contrast"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:tabBackground="?attr/colorPrimary"
+            app:tabIndicatorColor="?attr/colorPrimaryDark"
+            app:tabMaxWidth="0dp"
+            app:tabSelectedTextColor="?attr/actionMenuTextColor">
+
+        </android.support.design.widget.TabLayout>
+    </FrameLayout>
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </LinearLayout>

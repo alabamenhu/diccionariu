@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/not_applicable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/entry_forms_not_available" />
+
+    <LinearLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/loading_entry" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateOnly="false"
+            android:mirrorForRtl="true" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/nounScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:paddingBottom="12dp">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="singular"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/b"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="plural"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="masculín"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue6">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapu"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/b"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue3">
+
+                        <TextView
+                            android:id="@+id/first_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapos"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/c"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/second_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="feminín"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/c"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue5">
+
+                        <TextView
+                            android:id="@+id/second_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapa"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/d"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue2">
+
+                        <TextView
+                            android:id="@+id/second_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapes"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/neuterNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Magar la so forma en singular, \npue concordar en neutru según contestu."
+                android:textAlignment="center"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/verbScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/verb_forms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/conjugation_warning"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FF551100" />
+
+            <TextView
+                android:id="@+id/indicative_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/indicative"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/foreground_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/subjunctive_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="18dp"
+                android:text="@string/subjunctive"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/foreground_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/potential_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="18dp"
+                android:text="@string/potential"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/foreground_primary"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/adjectiveScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:visibility="gone">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:paddingBottom="12dp">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="singular"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/b"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="plural"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="masculín"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue6">
+
+                        <TextView
+                            android:id="@+id/first_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapu"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/b"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue3">
+
+                        <TextView
+                            android:id="@+id/first_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapos"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/c"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/second_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="feminín"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/c"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue5">
+
+                        <TextView
+                            android:id="@+id/second_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapa"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/d"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue2">
+
+                        <TextView
+                            android:id="@+id/second_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapes"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/e"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/third_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="neutru"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/e"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue4">
+
+                        <TextView
+                            android:id="@+id/third_singular"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="guapo"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/f"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/asturian_blue1">
+
+                        <TextView
+                            android:id="@+id/third_plural"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minWidth="70dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:text="—"
+                            android:textAlignment="center"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

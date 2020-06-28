@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Diccionariu</string>
-    <string name="search_hint">Guetar en Diccionariu</string>
+    <string name="search_hint">Escribe una pallabra pa guetar el diccionariu.</string>
 
     <string name="title_section1">Diccionariu</string>
     <string name="title_section2">Correutor</string>
@@ -20,10 +20,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola cachu baleru</string>
+    <string name="entry_definitions">Aceiciones</string>
+    <string name="entry_phrases">Llocuciones</string>
+    <string name="entry_forms">Formes</string>
+    <string name="entry_unknown_word">¿ … ?</string>
 
+    <string name="entry_forms_not_available">Anguaño les formes solo son disponibles pa colos verbos.</string>
 
     <string-array name="part_of_speech_abbreviations">
-        <item>null</item>  <!-- 0. placeholder -->
+        <item>¿ ?</item>  <!-- 0. placeholder -->
         <item>sust.</item> <!-- 1. noun -->
         <item>v.</item> <!-- 2. verb -->
         <item>alv.</item> <!-- 3. adverb -->
@@ -36,6 +41,22 @@
         <item>interx.</item> <!-- 10. interjection -->
         <item>contr.</item> <!-- 11. contraction -->
         <item>lloc.</item> <!-- 12. phrasal -->
+        <item></item> <!-- 13. variable (relative, etc) -->
+    </string-array>
+    <string-array name="parts_of_speech">
+        <item>null</item>  <!-- 0. placeholder -->
+        <item>sustantivu</item> <!-- 1. noun -->
+        <item>verbu</item> <!-- 2. verb -->
+        <item>alverbiu</item> <!-- 3. adverb -->
+        <item>axetuviu</item> <!-- 4. adjective -->
+        <item>preposición</item> <!-- 5. preposition -->
+        <item>pronome</item> <!-- 6. pronoun -->
+        <item>conxunción</item> <!-- 7. conjunction -->
+        <item>apócope</item> <!-- 8. apocope -->
+        <item>artículo</item> <!-- 9. article -->
+        <item>interxeición</item> <!-- 10. interjection -->
+        <item>contraición</item> <!-- 11. contraction -->
+        <item>llocución</item> <!-- 12. phrasal -->
         <item></item> <!-- 13. variable (relative, etc) -->
     </string-array>
     <string name="app_info_title">Diccionariu v. 0.6β</string>
@@ -73,7 +94,7 @@
     <string name="dictionary_title">Diccionariu de l\'Academia de la Llingua Asturiana</string>
     <string name="dictionary_info">Espublizóse nel añu 2000 dempués de décades de trabayu, esti diccionariu contién sobro quinientes mil entraes. Muncha xente apurrió un sofitu pervaloratible, dende la investigación de formes etimolóxiques y dialeutales fasta la recoyida de pallabres en campos modernos como la informática. Toles entraes son Copyright © 2000 de l’Academia de la Llingua Asturiana que llicenció\'l so usu nesti programa.</string>
     <string name="dictionary_instructions">Pa usar el diccionariu, gueta una pallabra na barra de ferramientes.</string>
-    <string name="no_search_results">Nun s\'atoparon coincidencies.</string>
+    <string name="no_search_results">Nun hai coincidencies pa con «%s»</string>
     <string name="conjugate">Conxugar</string>
     <string name="title_activity_dictionary_conjugation_view">Conxugaciones</string>
     <string name="indicative">Indicativu</string>

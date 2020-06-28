@@ -1,86 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="2dp"
-    android:paddingBottom="12dp">
+    android:paddingBottom="12dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
 
     <TextView
+        android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="label"
-        android:id="@+id/label"
+        android:layout_gravity="center"
         android:layout_span="2"
+        android:text="label"
         android:textAlignment="center"
-        android:layout_gravity="center" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/foreground_primary" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_span="2"
-        android:background="@color/asturian_blue"></FrameLayout>
+        android:background="@color/background_header"></FrameLayout>
 
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:layout_gravity="center_horizontal">
+        android:paddingRight="8dp">
 
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_marginRight="8dp">
 
             <FrameLayout
+                android:id="@+id/a"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/a"
                 android:background="@color/asturian_blue6">
 
                 <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="yo"
                     android:id="@+id/first_singular"
-                    android:textAlignment="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_column="1"
                     android:layout_gravity="center"
-                    android:paddingTop="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minWidth="70dp"
                     android:paddingBottom="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:minWidth="70dp" />
+                    android:paddingTop="4dp"
+                    android:text="yo"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/foreground_primary" />
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/b"
-                android:background="@color/asturian_blue3" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/asturian_blue3">
 
                 <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="nós"
                     android:id="@+id/first_plural"
-                    android:textAlignment="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_column="2"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:paddingTop="4dp"
+                    android:minWidth="70dp"
                     android:paddingBottom="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:layout_column="2"
-                    android:layout_weight="1"
-                    android:minWidth="70dp" />
+                    android:paddingTop="4dp"
+                    android:text="nós"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/foreground_primary" />
             </FrameLayout>
 
         </TableRow>
@@ -88,56 +94,58 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_marginRight="8dp">
 
             <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/c"
-                android:background="@color/asturian_blue5" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/asturian_blue5">
 
                 <TextView
+                    android:id="@+id/second_singular"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="tu"
-                    android:id="@+id/second_singular"
-                    android:textAlignment="center"
+                    android:layout_column="1"
                     android:layout_gravity="center"
-                    android:paddingTop="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minWidth="70dp"
                     android:paddingBottom="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:minWidth="70dp" />
+                    android:paddingTop="4dp"
+                    android:text="tu"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/foreground_primary" />
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/d"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/d"
-                android:background="@color/asturian_blue2" >
+                android:background="@color/asturian_blue2">
 
                 <TextView
+                    android:id="@+id/second_plural"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="vós"
-                    android:id="@+id/second_plural"
-                    android:textAlignment="center"
+                    android:layout_column="2"
                     android:layout_gravity="center"
-                    android:paddingTop="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minWidth="70dp"
                     android:paddingBottom="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:layout_column="2"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:minWidth="70dp" />
+                    android:paddingTop="4dp"
+                    android:text="vós"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/foreground_primary" />
             </FrameLayout>
 
         </TableRow>
@@ -145,56 +153,58 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_marginRight="8dp">
 
             <FrameLayout
+                android:id="@+id/e"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/e"
                 android:background="@color/asturian_blue4">
 
                 <TextView
+                    android:id="@+id/third_singular"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="él/ella"
-                    android:id="@+id/third_singular"
-                    android:textAlignment="center"
+                    android:layout_column="1"
                     android:layout_gravity="center"
-                    android:paddingTop="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minWidth="70dp"
                     android:paddingBottom="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:minWidth="70dp" />
+                    android:paddingTop="4dp"
+                    android:text="él/ella"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/foreground_primary" />
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/f"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/f"
-                android:background="@color/asturian_blue1" >
+                android:background="@color/asturian_blue1">
 
                 <TextView
+                    android:id="@+id/third_plural"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ellos"
-                    android:id="@+id/third_plural"
-                    android:textAlignment="center"
+                    android:layout_column="2"
                     android:layout_gravity="center"
-                    android:paddingTop="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minWidth="70dp"
                     android:paddingBottom="4dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:layout_column="2"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:minWidth="70dp" />
+                    android:paddingTop="4dp"
+                    android:text="ellos"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/foreground_primary" />
             </FrameLayout>
         </TableRow>
     </TableLayout>

@@ -18,7 +18,9 @@ public class QuickFileReader {
             result = new byte[0];
             try {
                 inStream.close();
-            }catch(IOException f) {}
+            }catch(IOException f) {
+                System.out.println(f.getMessage());
+            }
         }
         return result;
     }

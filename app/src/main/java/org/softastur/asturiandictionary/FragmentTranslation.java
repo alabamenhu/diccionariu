@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +28,7 @@ public class FragmentTranslation
             Fragment
         implements
         GenericDownloader.DownloaderCallback,
+        RemoteFile.OnReceiveDataListener,
             View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +41,8 @@ public class FragmentTranslation
 
     private String ESLEMA_BEGIN_TAG = "name=\"texto_trad\">";
     private String ESLEMA_END_TAG = "</textarea>";
+    private final String ESLEMA_URL = "http://eslema.uniovi.es/comun/script_ejecuta.php";
+
 
     private static final int ASTURIAN_TO_CASTILIAN = 0;
     private static final int CASTILIAN_TO_ASTURIAN = 1;
@@ -153,9 +158,9 @@ public class FragmentTranslation
                     translationDirection.setText(getResources().getString(R.string.translate_asturian_to_castilian));
                     break;
                 case CASTILIAN_TO_ASTURIAN:
+                default:
                     translationDirection.setText(getResources().getString(R.string.translate_castilian_to_asturian));
                     break;
-                default:
             }
 
         }else if(view.getId() == R.id.translate_button) {
@@ -180,24 +185,21 @@ public class FragmentTranslation
                 translationType = "ast-es";
                 break;
             case CASTILIAN_TO_ASTURIAN:
-                translationType = "es-ast";
-                break;
             default:
                 translationType = "es-ast";
         }
 
-        GenericDownloader downloader = new GenericDownloader();
-        downloader.setCallback(this);
-        downloader.setTag(0);
-        downloader.addPostParameter("referrer", "traductor.php");
-        downloader.addPostParameter("unknown", "off.php");
-        downloader.addPostParameter("texto", originalTextView.getText().toString() );
-        downloader.addPostParameter("url","");
-        downloader.addPostParameter("file","");
-        downloader.addPostParameter("output",translationType);
-        downloader.addPostParameter("submit","Traducir");
 
-        downloader.execute("http://di098.edv.uniovi.es/apertium/comun/script_ejecuta.php");
+        HashMap<String,String> postParameters = new HashMap<>();
+        postParameters.put("referrer", "traductor.php");
+        postParameters.put("unknown", "off.php");
+        postParameters.put("texto", originalTextView.getText().toString() );
+        postParameters.put("url","");
+        postParameters.put("file","");
+        postParameters.put("output",translationType);
+        postParameters.put("submit","Traducir");
+
+        RemoteFile.accessFileWithPost(ESLEMA_URL,postParameters,this,0,5000);
 
         System.out.println("asturianu - sent off translation request");
     }
@@ -214,6 +216,10 @@ public class FragmentTranslation
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+    }
+
+    public void onTimeout(int id, long time) {
+
     }
 
 }

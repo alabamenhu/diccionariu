@@ -1,6 +1,5 @@
 package org.softastur.asturiandictionary;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -27,12 +26,17 @@ public class FragmentSettings extends Fragment implements RadioGroup.OnCheckedCh
     private static final String ARG_PARAM2 = "param2";
 
     public static final String KEY_PREF_OVERRIDE_LANGUAGE = "org.softastur.dictionary.overrideLanguage_boolean";
+    public static final String KEY_PREF_NIGHTMODE = "org.softastur.dictionary.nightmode_int";
+    public static final int VALUE_PREF_NIGHTMODE_SYSTEM = 0;
+    public static final int VALUE_PREF_NIGHTMODE_AUTO = 1;
+    public static final int VALUE_PREF_NIGHTMODE_DAY = 2;
+    public static final int VALUE_PREF_NIGHTMODE_NIGHT = 3;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private OnSettingsFragmentListener mListener;
+    private OnSettingsFragmentListener listener;
 
     /**
      * Use this factory method to create a new instance of
@@ -64,34 +68,56 @@ public class FragmentSettings extends Fragment implements RadioGroup.OnCheckedCh
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        boolean overrideLanguage = sharedPref.getBoolean(KEY_PREF_OVERRIDE_LANGUAGE, false);
 
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        RadioGroup radios = (RadioGroup) view.findViewById(R.id.radio_group);
 
+        boolean overrideLanguage = sharedPref.getBoolean(KEY_PREF_OVERRIDE_LANGUAGE, false);
+        RadioGroup radios = (RadioGroup) view.findViewById(R.id.radio_language);
         radios.check(
                 overrideLanguage
                         ? R.id.radio_asturian
                         : R.id.radio_system
         );
         radios.setOnCheckedChangeListener(this);
+
+        int nightmode = sharedPref.getInt(KEY_PREF_NIGHTMODE,VALUE_PREF_NIGHTMODE_SYSTEM);
+        radios = (RadioGroup) view.findViewById(R.id.radio_nightmode);
+        int current;
+        switch(nightmode) {
+            case VALUE_PREF_NIGHTMODE_SYSTEM:
+                current = R.id.radio_system;
+                break;
+            case VALUE_PREF_NIGHTMODE_NIGHT:
+                current = R.id.radio_night;
+                break;
+            case VALUE_PREF_NIGHTMODE_DAY:
+                current = R.id.radio_day;
+                break;
+            case VALUE_PREF_NIGHTMODE_AUTO:
+            default:
+                current = R.id.radio_auto;
+        }
+        radios.check(current);
+        radios.setOnCheckedChangeListener(this);
         return view;
     }
 
+
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onNeedsRestart();
+        if (listener != null) {
+            listener.onNeedsRestart();
         }
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnSettingsFragmentListener) activity;
+            listener = (OnSettingsFragmentListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -101,7 +127,7 @@ public class FragmentSettings extends Fragment implements RadioGroup.OnCheckedCh
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        listener = null;
     }
 
     /**
@@ -123,19 +149,37 @@ public class FragmentSettings extends Fragment implements RadioGroup.OnCheckedCh
         SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
-        boolean newValue;
-        if(id == R.id.radio_system) {
-            newValue = false;
-            editor.putBoolean(KEY_PREF_OVERRIDE_LANGUAGE, false);
-        }else if(id == R.id.radio_asturian) {
-            newValue = true;
-            editor.putBoolean(KEY_PREF_OVERRIDE_LANGUAGE, true);
-        }
-        editor.commit();
+        if(group.getId() == R.id.radio_language) {
+            boolean newValue;
+            if (id == R.id.radio_system) {
+                newValue = false;
+                editor.putBoolean(KEY_PREF_OVERRIDE_LANGUAGE, false);
+            } else if (id == R.id.radio_asturian) {
+                newValue = true;
+                editor.putBoolean(KEY_PREF_OVERRIDE_LANGUAGE, true);
+            }
+            editor.commit();
 
-        if (mListener != null) {
-            mListener.onNeedsRestart();
-        }
+            if (listener != null) {
+                listener.onNeedsRestart();
+            }
+        }else if (group.getId() == R.id.radio_nightmode) {
+            int newValue;
+            if (id == R.id.radio_night) {
+                newValue = VALUE_PREF_NIGHTMODE_NIGHT;
+            } else if (id == R.id.radio_day) {
+                newValue = VALUE_PREF_NIGHTMODE_DAY;
+            } else if (id == R.id.radio_auto) {
+                newValue = VALUE_PREF_NIGHTMODE_AUTO;
+            } else {
+                newValue = VALUE_PREF_NIGHTMODE_SYSTEM;
+            }
+            editor.putInt(KEY_PREF_NIGHTMODE, newValue);
+            editor.commit();
+            if (listener != null) {
+                listener.onNeedsRestart();
+            }
 
+        }
     }
 }

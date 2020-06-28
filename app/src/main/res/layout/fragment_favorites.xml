@@ -7,9 +7,10 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ListView
+        android:id="@+id/favoritesList"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/favoritesList"
-        android:layout_gravity="top|center" />
+        android:layout_gravity="top|center"
+        android:background="@color/background_primary" />
 
 </FrameLayout>

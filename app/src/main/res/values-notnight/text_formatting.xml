@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--these are fake entries and not used-->
+    <color name="foo_color">#004278</color>
+    <string name="foo_string">Favorites</string>
+    <bool name="foo_bool">true</bool>
+    <integer name="foo_int">0</integer>
+
+</resources>

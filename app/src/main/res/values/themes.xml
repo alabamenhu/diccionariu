@@ -3,11 +3,11 @@
     <!-- Base application theme. -->
     <style name="DictionaryTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/asturian_blue</item>
+        <item name="colorPrimary">@color/background_header</item>
 
         <!-- colorPrimaryDark is used for the status bar -->
-        <item name="colorPrimaryDark">@color/asturian_dark_blue</item>
-        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/background_header_contrast</item>
+        <item name="android:textColorPrimary">@color/foreground_header</item>
 
         <!-- colorAccent is used as the default value for colorControlActivated,
              which is used to tint widgets -->
@@ -16,8 +16,8 @@
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
 
-        <item name="actionMenuTextColor">@color/white</item>
-        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="actionMenuTextColor">@color/foreground_primary</item>
+        <item name="android:actionMenuTextColor">@color/foreground_primary</item>
         <!-- You can also set colorControlNormal, colorControlActivated
              colorControlHighlight, and colorSwitchThumbNormal. -->
     </style>
@@ -30,5 +30,14 @@
     <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowMinWidthMajor">90%</item>
         <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="DatePickerStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@color/foreground_bright</item>
+        <item name="textColorAlertDialogListItem">@color/foreground_primary</item>
+        <item name="colorAccent">@color/foreground_bright</item>
+        <item name="android:textColorPrimary">@color/foreground_primary</item>
+        <item name="android:windowBackground">@color/background_primary</item>
     </style>
 </resources>
